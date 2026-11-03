@@ -1,0 +1,46 @@
+[package]
+name = "thingscan-app"
+version = "0.1.0"
+description = "Find, add and keep an eye on smart-home devices"
+edition = "2024"
+
+[lib]
+# The `_lib` suffix keeps the lib name distinct from the bin name, which
+# matters on Windows: https://github.com/rust-lang/cargo/issues/8519
+name = "thingscan_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "thingscan-app"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+aes-gcm = "0.11.1"
+anyhow = "1.0.104"
+axum = "0.8"
+base64 = "0.23.1"
+getrandom = "0.4.3"
+hkdf = "0.13.0"
+hmac = "0.13.0"
+if-addrs = "0.15"
+pbkdf2 = "0.13.0"
+mdns-sd = "0.21"
+reqwest = { version = "0.13.5", default-features = false, features = ["json", "rustls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.11.1"
+subtle = "2.6.1"
+tauri = { version = "2", features = ["image-png", "macos-private-api", "tray-icon"] }
+tauri-plugin-clipboard-manager = "2"
+thingscan-core = { path = "../crates/thingscan-core" }
+tokio = { version = "1", features = ["macros", "net", "rt", "sync", "time"] }
+uuid = { version = "1.29.0", features = ["v4"] }
+x25519-dalek = { version = "3.0.0", features = ["static_secrets"] }
+
+[dev-dependencies]
+tauri = { version = "2", features = ["test"] }
+thingscan-server = { path = "../crates/thingscan-server" }
+tempfile = "3"

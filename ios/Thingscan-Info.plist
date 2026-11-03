@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Thingscan finds your TV and appliances on your Wi-Fi, checks they answer, and syncs with Thingscan on your Mac.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Thingscan listens for Bluetooth adverts to find devices nearby and to check that added devices are still around.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_thingscan._tcp</string>
+		<string>_smartthings._tcp</string>
+		<string>_smartthings-hedge._tcp</string>
+		<string>_matterc._udp</string>
+		<string>_matterd._udp</string>
+		<string>_matter._tcp</string>
+		<string>_meshcop._udp</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,25 @@
+[workspace]
+resolver = "3"
+members = ["crates/thingscan-core", "crates/thingscan-cli", "crates/thingscan-server", "src-tauri"]
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+strip = true
+
+# Password stretching (PBKDF2, Argon2) takes seconds unoptimized; keep debug builds usable.
+[profile.dev.package.sha2]
+opt-level = 3
+
+[profile.dev.package.pbkdf2]
+opt-level = 3
+
+[profile.dev.package.hmac]
+opt-level = 3
+
+[profile.dev.package.argon2]
+opt-level = 3
+
+[profile.dev.package.blake2]
+opt-level = 3

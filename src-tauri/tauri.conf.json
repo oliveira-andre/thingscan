@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Thingscan",
+  "version": "0.1.0",
+  "identifier": "app.thingscan.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1440",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [
+      {
+        "label": "main",
+        "title": "Thingscan",
+        "width": 1180,
+        "height": 780,
+        "minWidth": 860,
+        "minHeight": 600,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true,
+        "backgroundColor": "#0B0E11",
+        "trafficLightPosition": {
+          "x": 20,
+          "y": 26
+        }
+      },
+      {
+        "label": "tray",
+        "url": "tray.html",
+        "title": "Thingscan",
+        "width": 384,
+        "height": 620,
+        "visible": false,
+        "decorations": false,
+        "transparent": true,
+        "resizable": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "shadow": true,
+        "acceptFirstMouse": true,
+        "focus": false,
+        "visibleOnAllWorkspaces": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self' ipc: http://ipc.localhost; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:"
+    },
+    "macOSPrivateApi": true
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}

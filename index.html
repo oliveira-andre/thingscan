@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thingscan</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="topnav" data-tauri-drag-region>
+        <div class="brand" data-tauri-drag-region>
+          <img class="brand-mark" src="/src/assets/mark.svg" alt="" data-tauri-drag-region />
+          <span class="wordmark" data-tauri-drag-region>Thingscan</span>
+        </div>
+        <nav class="nav-links">
+          <button class="nav-link" type="button" data-view="home">Home</button>
+          <button class="nav-link" type="button" data-view="add">Add device</button>
+        </nav>
+        <div class="nav-fill" data-tauri-drag-region></div>
+        <div id="account-menu" class="nav-account"></div>
+      </header>
+      <main id="view" class="view"></main>
+    </div>
+    <div id="overlays"></div>
+    <div id="toasts" class="toasts" aria-live="polite"></div>
+  </body>
+</html>

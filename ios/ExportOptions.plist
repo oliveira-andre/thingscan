@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Development signing: the only kind a free Personal Team gets. The .ipa installs on the
+	     iPhones registered to the team (any one connected to Xcode once). -->
+	<key>method</key>
+	<string>debugging</string>
+	<key>signingStyle</key>
+	<string>automatic</string>
+	<key>teamID</key>
+	<string>ZT23B58Z4D</string>
+	<key>thinning</key>
+	<string>&lt;none&gt;</string>
+</dict>
+</plist>

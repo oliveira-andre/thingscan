@@ -1,0 +1,32 @@
+# The Thingscan account server behind Caddy, which gets and renews the HTTPS certificate.
+# Copy .env.example to .env and set THINGSCAN_DOMAIN first. See the README's Deployment section.
+services:
+  server:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    restart: unless-stopped
+    environment:
+      THINGSCAN_ALLOW_SIGNUP: ${THINGSCAN_ALLOW_SIGNUP:-true}
+    volumes:
+      - server-data:/data
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - server
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      THINGSCAN_DOMAIN: ${THINGSCAN_DOMAIN:?set THINGSCAN_DOMAIN in deploy/.env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  server-data:
+  caddy-data:
+  caddy-config:
